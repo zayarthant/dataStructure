@@ -23,3 +23,12 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+/dataStructure.iml
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/jarRepositories.xml
+/.idea/libraries/Maven__junit_junit_3_8_1.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/uiDesigner.xml
