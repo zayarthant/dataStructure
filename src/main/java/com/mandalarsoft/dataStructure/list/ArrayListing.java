@@ -11,14 +11,14 @@ public class ArrayListing<E> implements Listing<E> {
 
     private int size;
 
-    private Object[] data;
+    private E[] data;
 
     public ArrayListing() {
         this(DEFAULT_CAPACITY);
     }
 
     private ArrayListing(int size) {
-        this.data = new Object[size];
+        this.data = (E[]) new Object[size];
     }
 
     @Override
@@ -42,13 +42,28 @@ public class ArrayListing<E> implements Listing<E> {
     public boolean add(int index, E e) {
         if (index > size)
             throw new ArrayIndexOutOfBoundsException(index);
-        for (int i = size ; i >= index; ) {
+        for (int i = size; i >= index; ) {
             i--;
             add((E) data[i], i + 1);
         }
         this.add(e, index);
         size++;
         return true;
+    }
+
+    @Override
+    public boolean put(int index, E e) {
+        if (index > size)
+            throw new ArrayIndexOutOfBoundsException(index);
+        data[index] = e;
+        return true;
+    }
+
+    @Override
+    public E get(int index) {
+        if (index > size)
+            throw new ArrayIndexOutOfBoundsException(index);
+        return data[index];
     }
 
     private void add(E e, int index) {
@@ -58,7 +73,7 @@ public class ArrayListing<E> implements Listing<E> {
     }
 
     private void grawCapacity() {
-        data = Arrays.copyOf(data, data.length + 11);
+        data = Arrays.copyOf(data, data.length * 2);
     }
 
     @Override
@@ -68,7 +83,7 @@ public class ArrayListing<E> implements Listing<E> {
 
     @Override
     public void clear() {
-        data = new Object[DEFAULT_CAPACITY];
+        data = (E[]) new Object[DEFAULT_CAPACITY];
         size = 0;
     }
 
@@ -76,9 +91,9 @@ public class ArrayListing<E> implements Listing<E> {
     public E remove(int index) {
         if (index > size)
             throw new ArrayIndexOutOfBoundsException(index);
-        E old = (E) data[index];
+        E old = data[index];
         for (int i = index; i < size; i++) {
-            add((E) data[i + 1], i);
+            add(data[i + 1], i);
         }
         size--;
         data[size] = null;
