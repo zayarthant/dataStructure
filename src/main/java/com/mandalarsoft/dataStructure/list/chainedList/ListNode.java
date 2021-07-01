@@ -1,5 +1,6 @@
 package com.mandalarsoft.dataStructure.list.chainedList;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class ListNode<E> {
@@ -40,4 +41,5 @@ public class ListNode<E> {
     public void prev(ListNode<E> prev) {
         this.prev = Optional.ofNullable(prev);
     }
+
 }

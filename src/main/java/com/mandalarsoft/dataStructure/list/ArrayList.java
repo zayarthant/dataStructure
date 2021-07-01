@@ -5,7 +5,7 @@ import com.mandalarsoft.dataStructure.domain.Listing;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class ArrayListing<E> implements Listing<E> {
+public class ArrayList<E> implements Listing<E> {
 
     private static int DEFAULT_CAPACITY = 11;
 
@@ -13,11 +13,11 @@ public class ArrayListing<E> implements Listing<E> {
 
     private E[] data;
 
-    public ArrayListing() {
+    public ArrayList() {
         this(DEFAULT_CAPACITY);
     }
 
-    private ArrayListing(int size) {
+    private ArrayList(int size) {
         this.data = (E[]) new Object[size];
     }
 
