@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public class ChainedList<T> implements Listing<T> {
 
-    private Optional<ListNode<T>> head = Optional.empty();
-    private Optional<ListNode<T>> tail = Optional.empty();
-    private int size;
+    protected Optional<ListNode<T>> head = Optional.empty();
+    protected Optional<ListNode<T>> tail = Optional.empty();
+    protected int size;
 
     public ChainedList() {
 
